@@ -1,0 +1,54 @@
+{% extends 'home/base.html' %}
+
+{% load static %}
+{% block title%} Register Page
+
+{% endblock %}
+
+
+{% block csslink %}
+<link href="{% static 'userauth/registerstyle.css' %}" rel="stylesheet">
+{% endblock csslink %}
+
+   {% block body %}
+
+   <div class="body body-s">
+		
+    <form action="/userauth/registerHandle" method="POST" class="sky-form">
+        {% csrf_token %}
+        <header>SignUp
+          <h6  class="anchor">Already have an account? <a style="background: transparent; text-decoration: none;"  class="anchortag" href="/userauth/login" >signin here </a> </h6>
+
+        </header>
+
+        <fieldset>					
+            <section>
+                <label class="input">Username
+                    <input required  name="username" type="text" placeholder="Username">
+                </label>
+            </section>
+            
+            <section>
+                <label class="input">Email Address 
+                    <input required name="email" type="text" placeholder="Email address">
+                </label>
+            </section>
+            
+            <section>
+                <label class="input">Password
+                    <input name="password"  required type="password" placeholder="Password">
+                </label>
+            </section>
+            
+            
+        </fieldset>
+   
+        <footer>
+            <button type="submit" class="button">Submit</button>
+        </footer>
+    </form>
+    
+</div>
+
+     {% endblock %}
+  
